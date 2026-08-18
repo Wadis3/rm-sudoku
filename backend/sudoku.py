@@ -89,6 +89,7 @@ def gen_puzzle(board, difficulty='medium'):
 			break
 		
 		temp = board[row][col]
+		board[row][col] = 0
 		
 		board_copy = copy.deepcopy(board)
 		if solve(board_copy) > 1:
@@ -102,6 +103,6 @@ if __name__ == "__main__":
 		print(row)
 	print('\n')
 	puzzle = copy.deepcopy(board)
-	gen_puzzle(puzzle)
+	gen_puzzle(puzzle, 'easy')
 	for row in puzzle:
 		print(row)
