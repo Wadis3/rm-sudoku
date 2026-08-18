@@ -1,0 +1,24 @@
+# === Python & Virtuella miljöer ===
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+
+# === Databaser & Känsliga filer ===
+*.db
+*.sqlite
+*.sqlite3
+.env
+*.log
+
+# === Operativsystem & Editorer ===
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# === Nätverk / Docker (valfritt) ===
+*.pid
