@@ -65,6 +65,9 @@ def solve_from(row, col, board):
 		
 		solutions += solve_from(row, col + 1, board)
 		
+		if solutions >= 2:
+			return solutions
+		
 		board[row][col] = 0
 	return solutions
 
@@ -97,12 +100,12 @@ def gen_puzzle(board, difficulty='medium'):
 		else:
 			removed += 1
 
-if __name__ == "__main__":
-	board = gen_board()
-	for row in board:
-		print(row)
-	print('\n')
-	puzzle = copy.deepcopy(board)
-	gen_puzzle(puzzle, 'easy')
-	for row in puzzle:
-		print(row)
+def gen_game(difficulty='medium'):
+	board 	= gen_board()
+	puzzle 	= copy.deepcopy(board)
+	gen_puzzle(puzzle, difficulty)
+	
+	return {
+		'board': board,
+		'puzzle': puzzle
+	}
