@@ -1,1 +1,32 @@
 <!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Sudoku #{{ puzzle_id }}</title>
+    <style>
+        table { border-collapse: collapse; margin: 20px auto; }
+        td { width: 40px; height: 40px; text-align: center; font-size: 20px; border: 1px solid #ccc; }
+        /* Skapa tjockare linjer för 3x3-boxarna */
+        tr:nth-child(3n) td { border-bottom: 2px solid #000; }
+        td:nth-child(3n) { border-right: 2px solid #000; }
+        tr:first-child td { border-top: 2px solid #000; }
+        td:first-child { border-left: 2px solid #000; }
+        .empty { background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Sudoku #{{ puzzle_id }} ({{ difficulty }})</h1>
+
+    <table>
+        {% for row in puzzle %}
+            <tr>
+                {% for cell in row %}
+                    <td class="{% if cell == 0 %}empty{% endif %}">
+                        {% if cell != 0 %}{{ cell }}{% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
